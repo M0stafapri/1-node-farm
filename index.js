@@ -41,11 +41,17 @@ const app = express();
 app.use(express.json());
 
 app.post('/register', async (req, res) => {
-    // Registration logic goes here
+    // Validate user input
+    // Check for email uniqueness
+    // Hash the password
+    // Store the user data in the database
 });
 
 app.post('/login', async (req, res) => {
-    // Login logic goes here
+    // Validate user input
+    // Check if the email exists in the database
+    // Compare the entered password with the stored password
+    // Create a user session
 });
 
 app.listen(8000, () => {
