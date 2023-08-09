@@ -1,6 +1,8 @@
-const fs = require('fs');
-const http = require('http');
-const url = require('url');
+const express = require('express');
+const mongodb = require('mongodb');
+const bcrypt = require('bcrypt');
+const session = require('express-session');
+const MongoDBStore = require('connect-mongodb-session')(session);
 
 ///////////////////////////
 // FILES
@@ -35,11 +37,23 @@ const url = require('url');
 
 // SERVER
 
-const server = http.createServer((req, res) =>{
-    console.log(req.url);
-    res.end('Hello from the server!');
+const app = express();
+app.use(express.json());
+
+app.post('/register', async (req, res) => {
+    // Validate user input
+    // Check for email uniqueness
+    // Hash the password
+    // Store the user data in the database
 });
 
-server.listen(8000, '127.0.0.1', ()=>{
+app.post('/login', async (req, res) => {
+    // Validate user input
+    // Check if the email exists in the database
+    // Compare the entered password with the stored password
+    // Create a user session
+});
+
+app.listen(8000, () => {
     console.log(`Listening to requests on port 8000`);
 });
